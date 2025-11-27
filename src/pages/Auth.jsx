@@ -30,12 +30,12 @@ function Auth({insideRegister}) {
 {/* email */}
 <input type="text" placeholder='Email ID' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
 {/* password */}
-<div className='flex items-center' >
+<div className='flex items-center ' >
   <input  type={viewPassword?"text":"password"} placeholder='Password' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5 ' />
   {
 viewPassword?
   
-  <FaEyeSlash onClick={()=>setViewPassword(!viewPassword)} className='text-gray-400  cursor-pointer '  style={{marginLeft:"-30px",marginTop:"-20px"}}/>
+  <FaEyeSlash onClick={()=>setViewPassword(!viewPassword)} className='text-gray-400  cursor-pointer'  style={{marginLeft:"-30px",marginTop:"-20px"}}/>
   :
 <FaEye onClick={()=>setViewPassword(!viewPassword)} className='text-gray-400  cursor-pointer '  style={{marginLeft:"-30px",marginTop:"-20px"}}/>
 }

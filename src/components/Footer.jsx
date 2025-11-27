@@ -18,8 +18,8 @@ function Footer() {
       <h3 className="font-bold mb-5">NEWS LETTER</h3>
       <p className="text-gray-300 mb-4">Stay updated with our latest trends</p>
       <div className="flex">
-        <input type="email" placeholder="Email ID" class=" w-70 text-black bg-white" />
-        <button type="text" className="bg-yellow-500 px-2 py-2 rounded-r-md">→</button>
+        <input type="email" placeholder="Email ID" class=" w-70 text-black bg-white rounded" />
+        <button type="text" className="bg-yellow-500 px-2 py-2 rounded">→</button>
       </div>
     </div>
 {/* follow us */}
