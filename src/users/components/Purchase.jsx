@@ -13,7 +13,7 @@ function Purchase() {
                <p className='text-justify' >Abstract</p>
                <div className="flex mt-5">
                    {/* pending */}
-                   <img width={'120px'} height={'120'} src="https://png.pngtree.com/png-clipart/20210923/ourmid/pngtree-purchase-button-png-image_3952176.png" alt="no img" />
+                   <img width={'120px'} height={'120px'} src="https://static.vecteezy.com/system/resources/thumbnails/023/629/698/small/web-button-icon-purchase-button-free-png.png" alt="no img" />
                 
                 </div>
             </div>

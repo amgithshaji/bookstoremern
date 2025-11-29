@@ -47,7 +47,7 @@ function SellBook() {
                    <div className="mb-3">
               <input type="text" placeholder='Category' className='p-2 bg-white w-full rounded' />
               </div>
-              <div className="m-3 px-30">
+              <div className="flex justify-center mt-10">
 
                 <label htmlFor="uploading">
                <input type="file" id='uploading' hidden/>

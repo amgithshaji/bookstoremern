@@ -2,7 +2,7 @@ import React from 'react'
 import AdminHeader from "../components/AdminHeader"
 import AdminSideBar from "../components/AdminSideBar"
 import Footer from "../../components/Footer"
-import { FaBook } from 'react-icons/fa'
+import { FaBook, FaMoneyBill, FaUser, FaUsers } from 'react-icons/fa'
 import { ResponsiveContainer, BarChart, Legend, XAxis, YAxis, CartesianGrid, Tooltip, Bar, PieChart, Pie  } from 'recharts'
 function AdminHome() {
   // #region Sample data
@@ -73,12 +73,24 @@ const data = [
   <div className="md:grid grid-cols-4 gap-10">
     {/* block */}
    <div className="my-5 md:my-0 md:px-5 ">
-<div className="bg-green-100 p-4 flex items-center justify-between rounded ">
+<div className="bg-orange-100 p-4 flex items-center justify-between rounded ">
 {/* icons */}
 <FaBook className='text-5xl' />
 {/* content */}
 <div className='ms-5'>
-  <h3 className='text-xl' >Purchase</h3>
+  <h3 className='text-xl' >Books</h3>
+<h2 className='text-2xl' >100+</h2>
+</div>
+</div>
+   </div>
+     {/* block */}
+   <div className="my-5 md:my-0 md:px-5 ">
+<div className="bg-yellow-100 p-4 flex items-center justify-between rounded ">
+{/* icons */}
+<FaUser className='text-5xl' />
+{/* content */}
+<div className='ms-5'>
+  <h3 className='text-xl' >Users</h3>
 <h2 className='text-2xl' >100+</h2>
 </div>
 </div>
@@ -87,31 +99,19 @@ const data = [
    <div className="my-5 md:my-0 md:px-5 ">
 <div className="bg-green-100 p-4 flex items-center justify-between rounded ">
 {/* icons */}
-<FaBook className='text-5xl' />
+<FaUsers className='text-5xl' />
 {/* content */}
 <div className='ms-5'>
-  <h3 className='text-xl' >Purchase</h3>
+  <h3 className='text-xl' >Employees</h3>
 <h2 className='text-2xl' >100+</h2>
 </div>
 </div>
    </div>
      {/* block */}
    <div className="my-5 md:my-0 md:px-5 ">
-<div className="bg-green-100 p-4 flex items-center justify-between rounded ">
+<div className="bg-red-100 p-4 flex items-center justify-between rounded ">
 {/* icons */}
-<FaBook className='text-5xl' />
-{/* content */}
-<div className='ms-5'>
-  <h3 className='text-xl' >Purchase</h3>
-<h2 className='text-2xl' >100+</h2>
-</div>
-</div>
-   </div>
-     {/* block */}
-   <div className="my-5 md:my-0 md:px-5 ">
-<div className="bg-green-100 p-4 flex items-center justify-between rounded ">
-{/* icons */}
-<FaBook className='text-5xl' />
+<FaMoneyBill className='text-5xl' />
 {/* content */}
 <div className='ms-5'>
   <h3 className='text-xl' >Purchase</h3>

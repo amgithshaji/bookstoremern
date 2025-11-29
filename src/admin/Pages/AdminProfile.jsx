@@ -15,9 +15,17 @@ function AdminProfile() {
   <h1 className="text-center my-5 font-bold text-5xl"> Settings </h1>
 <div className="md:grid grid-cols-2 items-center mt-10 gap-10">
 {/* text */}
-<p className='font-bold mb-2'>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem architecto nostrum, cupiditate fugiat dicta pariatur sequi, blanditiis quisquam laudantium repellat excepturi sint soluta sed aspernatur repellendus veritatis perspiciatis eveniet sapiente.
-</p>
+
+<div>
+  <h2 className='text-xl font-bold mb-5'>welcome to admin setting panel</h2>
+  <p className='text-justify mb-5'>
+This dashboard serves as your complete control center for managing every part of your online bookstore. From updating book details and organizing categories to monitoring orders, handling user accounts, and customizing website settings, everything you need is gathered in one easy-to-use space. Use this panel to keep your store updated, improve customer experience, and ensure your bookstore runs smoothly and efficiently every day.
+  </p>
+  <p className='font-bold mb-2'>
+    Account setting
+  </p>
+  <p> Update your personal information, change your password, and customize your login preferences to keep your admin profile secure and up to date. Make sure your details are accurate to ensure smooth access and better control over your bookstore management.</p>
+</div>
 {/* form */}
   <div className="flex justify-center items-center flex-col my-5 bg-blue-100 ">
             {/* image */}

@@ -13,11 +13,11 @@ function BookStatus() {
                <p className='text-justify' >Abstract</p>
                <div className="flex mt-5">
                    {/* pending */}
-                   <img width={'120px'} height={'120'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArBtZ2X6y7Q1UDNhpXEkIBFIlftfOSaAe0g&s" alt="" />
+                   <img width={'170px'} height={'170'} src="https://psdstamps.com/wp-content/uploads/2022/04/round-pending-stamp-png.png" alt="" />
                    {/* approved */}
-                <img width={'120px'} height={'120'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd60BwQe5NyPu9i_L4K4gdp3a9vPy5SfRzYw&s" alt="" />
+                <img width={'170px'} height={'170'} src="https://psdstamps.com/wp-content/uploads/2020/09/round-approved-stamp-png.png" alt="" />
                    {/* sold */}
-              <img width={'120px'} height={'120'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd60BwQe5NyPu9i_L4K4gdp3a9vPy5SfRzYw&s" alt="" />
+              <img width={'170px'} height={'170'} src="https://psdstamps.com/wp-content/uploads/2019/12/round-sold-out-stamp-png.png" alt="" />
                 </div>
             </div>
             <div className='px-4 mt-4 md:mt-0'>
