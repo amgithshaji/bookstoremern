@@ -37,7 +37,7 @@ function Footer() {
 
 </footer>
   <div className="bg-black text-gray-400 text-center py-4 text-sm">
-    Copyright © 2023 All rights reserved | This website is made with <span className='text-white'>♥</span> By Luminar Technolab
+    Copyright © 2023 All rights reserved | This website is made with <span className='text-white'>♥</span> By Amgith Shaji
   </div>
 
     </>
