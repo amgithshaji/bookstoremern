@@ -2,10 +2,26 @@ import React, { useState } from 'react'
 import { FaEyeSlash, FaUser } from 'react-icons/fa'
 import { FaEye } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
+  import { ToastContainer, toast } from 'react-toastify';
 
 
 function Auth({insideRegister}) {
   const [viewPassword,setViewPassword]=useState(false)
+// strore data from 
+const [userDetails,setUserDetails]= useState({
+  username:"", email:"", password:""
+}) 
+// console.log(userDetails);
+const handleRegister =(e)=>{
+  e.preventDefault()
+  const {username,email,password}= userDetails
+  if (email && password && username) {
+    toast.success("API CALL")
+    
+  }else{
+    toast.info("please fill the form completely")
+  }
+}
 
 
   return (
@@ -24,14 +40,14 @@ function Auth({insideRegister}) {
   {/* username */}
   {
     insideRegister&& 
-    <input type="text" placeholder='Username' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
+    <input value={userDetails.username} onChange={(e)=>setUserDetails({...userDetails,username:e.target.value})} type="text" placeholder='Username' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
 
   }
 {/* email */}
-<input type="text" placeholder='Email ID' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
+<input  value={userDetails.email} onChange={(e)=>setUserDetails({...userDetails,email:e.target.value})}  type="text" placeholder='Email ID' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
 {/* password */}
 <div className='flex items-center ' >
-  <input  type={viewPassword?"text":"password"} placeholder='Password' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5 ' />
+  <input  value={userDetails.password} onChange={(e)=>setUserDetails({...userDetails,password:e.target.value})}   type={viewPassword?"text":"password"} placeholder='Password' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5 ' />
   {
 viewPassword?
   
@@ -54,7 +70,7 @@ viewPassword?
 <div className='text-center' >
 {
   insideRegister?
-  <button type='button' className='bg-green-700 p-2 w-full rounded' >Register</button>
+  <button onClick={handleRegister} type='button' className='bg-green-700 p-2 w-full rounded' >Register</button>
   :
     <button type='button' className='bg-green-700 p-2 w-full rounded' >Login</button>
 
@@ -75,6 +91,13 @@ viewPassword?
         </div>
 
       </div>
+      {/* toast container */}
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+theme="colored"
+/>
+
     </div>
   )
 }

@@ -121,8 +121,10 @@ const data = [
    </div>
   </div>
   {/* chart title */}
-  <div className="md:grid grid-cols-2  mt-10">
-    <h3>monthly </h3>
+  <div className="md:grid grid-cols-2  mt-10 mb-5">
+    <h3 className='font-bold text-xl' >Monthly Revenue (Bar Chart)</h3>
+        <h3 className='font-bold text-xl' >Monthly Purchase Analysis (Pie Chart)</h3>
+
 
   </div>
   {/* chart */}
