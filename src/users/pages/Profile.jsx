@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FaCircleCheck } from 'react-icons/fa6'
@@ -9,6 +9,19 @@ import Purchase from '../components/Purchase'
 
 function Profile() {
   const [tab,setTab]= useState(1)
+  const [dp,setDp] = useState("")
+  const [username,setUsername] = useState("")
+  console.log(dp);
+
+  useEffect(()=>{
+    if (sessionStorage.getItem("token") && sessionStorage.getItem("user")) {
+        const user = JSON.parse(sessionStorage.getItem("user"))
+        setUsername(user?.username)
+        setDp(user?.picture)
+
+    }
+  },[])
+  
   return (
     <>
     <Header/>
@@ -16,12 +29,12 @@ function Profile() {
     <div style={{height:"200px"}} className="bg-black"></div>
     {/* profile imgage */}
     <div style={{width:"250px",height:"250px",borderRadius:"50%",marginLeft:"70px",marginTop:"-130px"}} className='bg-white p-3' >
-      <img style={{width:"230px",height:"230px",borderRadius:"50%",}} src="https://mobilenetrix.com/assets/client/app/media/img/users/profile_user.jpg" alt="no img" />
+      <img style={{width:"230px",height:"230px",borderRadius:"50%",}} src={dp?dp:"https://mobilenetrix.com/assets/client/app/media/img/users/profile_user.jpg"} alt="profile image" />
 
     </div>
     {/* namw with edit */}
     <div className="md:flex justify-between items-center md:px-20 px-5 my-5">
-      <h1 className="text-2xl font-bold flex items-center ">Username  <FaCircleCheck className='text-blue-400 ms-5' /> </h1>
+      <h1 className="text-2xl font-bold flex items-center ">{username}<FaCircleCheck className='text-blue-400 ms-5' /> </h1>
           <Edit/>
     </div>
     <p className=' text-justify md:px-20 px-5 my-5'>

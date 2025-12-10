@@ -10,6 +10,9 @@ function Header() {
   const [dp,setDp] = useState("")
   const [token,setToken] = useState("")
   const [dropDown,setDropDown] = useState(false)
+
+
+
   useEffect(()=>{
     if(sessionStorage.getItem("token")){
   const userToken = sessionStorage.getItem("token")
@@ -53,7 +56,7 @@ function Header() {
           :
           <div className='relative inline-block text-left ms-2'>
             <button onClick={()=>setDropDown(!dropDown)} className='w-full bg-white px-3 py-2 shadow-xs hover:bg-gray-50' >
-              <img width={'40px'} height={'40px'} style={{borderRadius:"50px"}} src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80" alt="no img" />
+              <img width={'40px'} height={'40px'} style={{borderRadius:"50px"}} src={dp?dp:"https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80"} alt="no img" />
             </button>
 
           {
@@ -81,7 +84,7 @@ function Header() {
           :
           <div className='relative inline-block text-left ms-2'>
             <button onClick={()=>setDropDown(!dropDown)} className='w-full bg-white px-3 py-2 shadow-xs hover:bg-gray-50' >
-              <img width={'40px'} height={'40px'} style={{borderRadius:"50px"}} src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80" alt="no img" />
+                <img width={'40px'} height={'40px'} style={{borderRadius:"50px"}} src={dp?dp:"https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80"} alt="no img" />
             </button>
 
           {
