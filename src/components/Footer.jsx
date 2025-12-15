@@ -18,7 +18,7 @@ function Footer() {
       <h3 className="font-bold mb-5">NEWS LETTER</h3>
       <p className="text-gray-300 mb-4">Stay updated with our latest trends</p>
       <div className="flex">
-        <input type="email" placeholder="Email ID" class=" w-70 text-black bg-white rounded" />
+        <input type="email" placeholder="Email ID" className=" w-70 text-black bg-white rounded" />
         <button type="text" className="bg-yellow-500 px-2 py-2 rounded">→</button>
       </div>
     </div>
@@ -26,7 +26,7 @@ function Footer() {
     <div>
       <h3 className="font-bold mb-5">FOLLOW US</h3>
       <p className="text-gray-300 mb-4">Let us be social</p>
-      <div class="flex space-x-4 text-xl">
+      <div className="flex space-x-4 text-xl">
       <FaInstagram className='text-2xl' />
                <FaFacebook className=' text-2xl' />
                <FaXTwitter className='text-2xl' />
