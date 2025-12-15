@@ -47,7 +47,7 @@ const handleUploadBook = async ()=>{
                reqBody.append(key,bookDetails[key])
             }else{
                bookDetails.uploadImages.forEach(imgFile=>{
-                  reqBody.append("uploadImages,imgfile")
+                  reqBody.append("uploadImages",imgFile)
                })
 
             }
