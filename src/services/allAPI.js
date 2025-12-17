@@ -23,3 +23,17 @@ export const addBookAPI = async (reqBody,reqHeader)=>{
 }
 
 
+// books/home: homepage books api : called by home component when page is loaded
+export const getHomePageBookAPI = async ()=>{
+    return await commonAPI("GET",`${serverURL}/books/home`,{})
+}
+
+// books/all : bookpage Api : called by books conpontent when all books  page load - authorized users
+export const getAllBooksPageAPI = async (reqHeader)=>{
+    return await commonAPI("GET",`${serverURL}/books/all`,{},reqHeader)
+}
+
+// user-books/all : called by book status when page load - authorised user
+export const getAllUserBooksAPI = async (reqHeader)=>{
+    return await commonAPI("GET",`${serverURL}/user-books/all`,{},reqHeader)
+}

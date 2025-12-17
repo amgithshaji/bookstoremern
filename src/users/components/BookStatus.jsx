@@ -1,6 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getAllUserBooksAPI } from '../../services/allAPI';
 
 function BookStatus() {
+  const[userBooks,setUserBooks] = useState([])
+console.log(userBooks);
+
+useEffect(()=>{
+  getUserUploadbooks()
+},[])
+
+  const getUserUploadbooks = async ()=>{
+const token = sessionStorage.getItem("token")
+if (token) {
+  const reqHeader = {
+    "Authorization" : `Bearer ${token}`
+  }
+  const result = await getAllUserBooksAPI(reqHeader)
+  if (result.status==200) {
+    setUserBooks(result.data)
+  }else{
+    console.log(result);
+    
+  }
+}
+  }
+
   return (
     <div className="p-10 my-20 mx-5 shadow rounded">
         {/* book div duplicate  */}
