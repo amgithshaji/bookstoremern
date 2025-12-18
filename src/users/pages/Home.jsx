@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FaSearch } from 'react-icons/fa'
@@ -6,11 +6,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { useEffect } from 'react'
 import { getHomePageBookAPI } from '../../services/allAPI'
+import { searchContext } from '../../contextAPI/ShareContext'
 
 
 function Home() {
   const navigate = useNavigate()
-const [searchKey,setsearchKey] = useState("")
+// const [searchKey,setsearchKey] = useState("")
+const {searchKey,setsearchKey} = useContext(searchContext)
 const [homeBooks,setHomeBooks] = useState([])
 
 console.log(homeBooks);
@@ -78,7 +80,7 @@ const handleSearch = ()=>{
  {
   homeBooks?.length>0?
 homeBooks?.map(book=>(
-   <div className='shadow  rounded p-3 mx-4 mb-5 md:mb-0' >
+   <div key={book?._id} className='shadow  rounded p-3 mx-4 mb-5 md:mb-0' >
     <img width={'200px'} height={'200px'} src={book?.imageURL} alt="books" />
 <div className='flex justify-center items-center flex-col mt-4' >
   <h3 className='text-blue-600 font-bold text-lg' >{book?.author}</h3>
