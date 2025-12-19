@@ -13,6 +13,10 @@ const [showCatergoryList,setShowCaterogyList] = useState(false)
 const [token,setToken] = useState("")
  const [allBooks,setAllBooks] = useState([])
  console.log(allBooks);
+ const[allCategory,setAllCategory] = useState([])
+ console.log(allCategory);
+ const [tempAllBooks,setTempAllBooks] = useState([])
+ 
  
 
 useEffect(()=>{
@@ -31,11 +35,27 @@ const reqHeader = {
 const result = await getAllBooksPageAPI(reqHeader,searchKey)
 if (result.status==200) {
   setAllBooks(result.data)
+  setTempAllBooks(result.data)
+  const tempAllcategory = result.data?.map(item=>item.category)
+  const tempCategorySet = new Set(tempAllcategory)
+  console.log([...tempCategorySet]);
+ setAllCategory([...tempCategorySet])
+  
 }else{
   console.log(result);
   
 }
  }
+
+ const filterBooks = (category)=>{
+ if (category=="all") {
+    setAllBooks(tempAllBooks)
+ }else{
+  setAllBooks(tempAllBooks?.filter(item=>item.category==category))
+ }
+ }
+
+
 
 
   return (
@@ -76,11 +96,15 @@ if (result.status==200) {
 
     </div>
     {/* book category */}
- <div className="mt-3">
-      <input type="radio" name='filter' id='demo' />
-             <label htmlFor="demo" className='ms-3'>category name</label>
+{
+  allCategory?.map((category,index)=>(
+     <div key={index} className="mt-3">
+      <input  type="radio" name='filter' id={category} />
+             <label htmlFor={category} className='ms-3'>{category}</label>
 
     </div>
+  ))
+}
   </div>
 </div>
 {/* book row */}
