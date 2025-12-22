@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaAddressCard, FaBars, FaFacebook, FaInstagram, FaPowerOff, FaUser } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Header() {
@@ -10,7 +10,7 @@ function Header() {
   const [dp,setDp] = useState("")
   const [token,setToken] = useState("")
   const [dropDown,setDropDown] = useState(false)
-
+  const navigate = useNavigate()
 
 
   useEffect(()=>{
@@ -25,7 +25,15 @@ function Header() {
   const menuBtnClick=()=>{
     setListStatus(!listStatus)
   }
-
+ 
+  const logout = ()=>{
+    sessionStorage.clear()
+    setToken("")
+    setDp("")
+    setDropDown(false)
+    setListStatus(false)
+    navigate('/')
+  }
   
   return (
     <>
@@ -63,7 +71,7 @@ function Header() {
              dropDown &&
           <div className=' absolute right-0 z-10 mt-2 w-40 rounded-md bg-white shadow-lg origin-top-right ring-1 ring-black/5 focus:outline-hidden'> 
                 <Link to={'/user/profile'} className=' px-4 py-2 text-sm text-gray-700 flex items-center' > <FaAddressCard className='me-2' /> profile</Link>
-            <button className='px-4 py-2 text-sm text-gray-700 flex items-center' > <FaPowerOff className='me-2' /> logout</button>
+            <button onClick={logout} className='px-4 py-2 text-sm text-gray-700 flex items-center' > <FaPowerOff className='me-2' /> logout</button>
             </div> }
           
           </div>
@@ -91,7 +99,7 @@ function Header() {
              dropDown &&
           <div className=' absolute right-0 z-10 mt-2 w-40 rounded-md bg-white shadow-lg origin-top-right ring-1 ring-black/5 focus:outline-hidden'> 
                 <Link to={'/user/profile'} className=' px-4 py-2 text-sm text-gray-700 flex items-center' > <FaAddressCard className='me-2' /> profile</Link>
-            <button className='px-4 py-2 text-sm text-gray-700 flex items-center' > <FaPowerOff className='me-2' /> logout</button>
+            <button onClick={logout} className='px-4 py-2 text-sm text-gray-700 flex items-center' > <FaPowerOff className='me-2' /> logout</button>
             </div> }
           
           </div>

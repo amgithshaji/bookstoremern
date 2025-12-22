@@ -67,7 +67,7 @@ if (result.status==200) {
     {/* login books page */}
     <div className="flex flex-col justify-center items-center my-5">
 {/* Title */}
-<h1 className='text-3xl font-bold my-5' >All Books</h1>
+<h1 className='text-3xl font-bold my-5'>All Books</h1>
 {/* search box */}
 <div className='flex my-5'>
   <input value={searchKey} onChange={e=>setsearchKey(e.target.value)} type="text" placeholder='search by title' className='border p-2 border-gray-400 w-100' />
@@ -91,7 +91,7 @@ if (result.status==200) {
   <div className={showCatergoryList?'block':'md:block hidden' }>
     {/* category  1 */}
     <div className="mt-3">
-      <input type="radio" name='filter' id='demo' />
+      <input onClick={()=>filterBooks("all")} type="radio" name='filter' id='demo' />
        <label htmlFor="all" className='ms-3'>All</label>
 
     </div>
@@ -99,7 +99,7 @@ if (result.status==200) {
 {
   allCategory?.map((category,index)=>(
      <div key={index} className="mt-3">
-      <input  type="radio" name='filter' id={category} />
+      <input onClick={()=>filterBooks(category)}  type="radio" name='filter' id={category} />
              <label htmlFor={category} className='ms-3'>{category}</label>
 
     </div>

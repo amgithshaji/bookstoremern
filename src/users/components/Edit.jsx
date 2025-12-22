@@ -40,7 +40,7 @@ function Edit() {
             </div>
             {/* bio */}
                    <div className=" mb-3 w-full px-5">
-<textarea type="text" placeholder='bio' row={3} className= 'border border-gray-200 p-2 rounded w-full' />
+<textarea type="text" placeholder='bio' row={2} className= 'border border-gray-200 p-2 rounded w-full' />
             </div>
             {/* button */}
                 <div className=" mb-3 flex justify-end px-5 w-full mt-5 ">
