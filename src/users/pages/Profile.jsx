@@ -6,6 +6,7 @@ import Edit from '../components/Edit'
 import SellBook from '../components/SellBook'
 import BookStatus from '../components/BookStatus'
 import Purchase from '../components/Purchase'
+import serverURL from '../../services/serverURL'
 
 function Profile() {
   const [tab,setTab]= useState(1)
@@ -29,7 +30,7 @@ function Profile() {
     <div style={{height:"200px"}} className="bg-black"></div>
     {/* profile imgage */}
     <div style={{width:"250px",height:"250px",borderRadius:"50%",marginLeft:"70px",marginTop:"-130px"}} className='bg-white p-3' >
-      <img style={{width:"230px",height:"230px",borderRadius:"50%",}} src={dp?dp:"https://mobilenetrix.com/assets/client/app/media/img/users/profile_user.jpg"} alt="profile image" />
+      <img style={{width:"230px",height:"230px",borderRadius:"50%",}}  src={dp?dp.startsWith("https://lh3.googleusercontent.com/")?dp:`${serverURL}/uploads/${dp}`:"https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80"} alt="profile image" />
 
     </div>
     {/* namw with edit */}
