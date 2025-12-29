@@ -12,7 +12,7 @@ function Auth({ insideRegister }) {
   const navigate = useNavigate()
 
   const [viewPassword, setViewPassword] = useState(false)
-  // strore data from 
+  // store data from 
   const [userDetails, setUserDetails] = useState({
     username: "",
     email: "",
