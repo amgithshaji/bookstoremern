@@ -2,12 +2,43 @@ import React, { useEffect, useState } from 'react'
 import AdminHeader from "../components/AdminHeader"
 import AdminSideBar from "../components/AdminSideBar"
 import Footer from "../../components/Footer"
-import { getAllAdminBooksAPI } from '../../services/allAPI'
+import { getAllAdminBooksAPI, getAllAdminUsersAPI, updateBookStatusAPI } from '../../services/allAPI'
+import serverURL from '../../services/serverURL'
+import { ToastContainer, toast } from 'react-toastify';
+
 function AdminCollections() {
   const[tab,setTab] = useState(1)
   const [allBooks,setAllBooks] = useState([])
-
   console.log(allBooks);
+      const [allusers,setAllUsers] = useState([])
+console.log(allusers);
+
+ useEffect(()=>{
+const token = sessionStorage.getItem("token")
+if (token) {
+  if (tab == 2) {
+    getAllUsers(token)
+  }
+  
+}
+  },[tab])
+
+   const getAllUsers = async (token)=>{
+    const reqHeader = {
+      "Authorization":`Bearer ${token}` 
+    }
+    const result = await getAllAdminUsersAPI (reqHeader)
+    if (result.status==200) {
+      setAllUsers(result.data)
+      
+    }else{
+      console.log(result);
+      
+    }
+  }
+  
+
+
   useEffect(()=>{
 const token = sessionStorage.getItem("token")
 if (token) {
@@ -31,6 +62,25 @@ if (token) {
       
     }
   }
+
+  const updateBookStatus = async (id)=>{
+    const token = sessionStorage.getItem("token")
+    if (token) {
+          const reqHeader = {
+      "Authorization":`Bearer ${token}` 
+    }
+    const result = await updateBookStatusAPI(id,reqHeader)
+    if (result.status==200) {
+      toast.success("book status updated")
+      getAllBooks(token)
+    }else{
+      console.log(result);
+      
+    }
+      
+    }
+  }
+
   
   return (
    <>
@@ -60,14 +110,20 @@ if (token) {
   <h3 className='text-blue-600 font-bold text-lg' >{book?.author}</h3>
   <h4 className='text-lg' >{book?.title}</h4>
   <h4>$ {book?.discountPrice}</h4>
-<div className='grid mt-3 w-full'> <button className='bg-green-600 mt-3 py-3 px-3 text-white'>APPROVE</button>
+<div className='grid mt-3 w-full'>
   
+{
+  book?.Status !="approved"?
+     <button onClick={()=>(updateBookStatus(book?._id))} className='bg-green-600 mt-3 py-3 px-3 text-white'>APPROVE</button>
+:
+<img width={'60px'} src="https://www.iconpacks.net/icons/2/free-check-icon-3278-thumb.png" alt="check img" />
+}  
 </div>
 </div>
   </div>
     ))
     :
-    <p> loading</p>
+    <p> loading...</p>
   }
     </div>
   }
@@ -75,23 +131,36 @@ if (token) {
     tab==2 &&
     <div className='md:grid grid-cols-3 w-full my-5' >
       {/* duplicate user cart */}
-      <div className="rounded bg-gray-200 p-3 m-2 text-warp">
-        <p className='text-red-600 font-bold'>ID : hhjh44545364</p>
+   {
+    allusers?.length>0?
+    allusers?.map(user=>(
+         <div key={user?._id} className="rounded bg-gray-200 p-3 m-2 text-warp">
+        <p className='text-red-600 font-bold'>{user?._id}</p>
         <div className='flex justify-between text-wrap mt-2'>
         {/* user image */}
-        <img width={'80px'} height={'200px'} style={{borderRadius:'50%'}} src="https://mobilenetrix.com/assets/client/app/media/img/users/profile_user.jpg" alt="user img" />
+        <img width={'80px'} height={'200px'} style={{borderRadius:'50%'}} src={user?.picture?user?.picture.startsWith("https://lh3.googleusercontent.com/")?user?.picture:`${serverURL}/uploads/${user.picture}`:"https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png"} alt="user img" />
         {/* content */}
         <div className='ms-5' >
-          <h4 className='font-bold text-2xl text-blue-800'>name</h4>
-           <p>demo@email.com</p>
+          <h4 className='font-bold text-1xl text-blue-800'>{user?.username}</h4>
+           <p>{user?.email}</p>
         </div>
         </div>
       </div>
+    ))
+    :
+    <p>loading...</p>
+   }
     </div>
   }
 </div>
     </div>
     <Footer/>
+       {/* toast container */}
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            theme="colored"
+          />
     </> 
      )
 }

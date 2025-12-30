@@ -58,3 +58,19 @@ export const editUserAPI = async (id,reqBody,reqHeader)=>{
 export const getAllAdminBooksAPI = async (reqHeader)=>{
     return await commonAPI("GET",`${serverURL}/admin-books/all`,{},reqHeader)
 }
+
+// admin-users/all : admin userpage api : called by the adminresources compontent when the tab 2 loads- authorized user
+export const getAllAdminUsersAPI = async (reqHeader)=>{
+    return await commonAPI("GET",`${serverURL}/admin-user/all`,{},reqHeader)
+}
+
+
+//  admin updating the book status
+export const updateBookStatusAPI = async (id,reqHeader)=>{
+    return await commonAPI("PUT",`${serverURL}/books/${id}/update`,{},reqHeader)
+}
+
+// book/:id : DELETE rqst by bookstatus componrnt when dlt button is clicked
+export const removeBookAPI = async (id,reqHeader)=>{
+    return await commonAPI("DELETE",`${serverURL}/books/${id}`,{},reqHeader)
+}
