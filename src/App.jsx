@@ -12,6 +12,8 @@ import AdminHome from './admin/Pages/AdminHome'
 import AdminCollections from './admin/Pages/AdminCollections'
 import Preloader from './components/Preloader'
 import { useState } from 'react'
+import PaymentSuccess from './users/pages/PaymentSuccess'
+import PaymentError from './users/pages/PaymentError'
 
 
 function App() {
@@ -33,6 +35,11 @@ setTimeout(() => {
 
           <Route path='/user/profile' element={<Profile/>} />
           <Route path='/books/:id/view' element={<View/>} />
+                    <Route path='/user/payment-success' element={<PaymentSuccess/>} />
+          <Route path='/user/payment-error' element={<PaymentError/>} />
+
+          
+
 
           <Route path='/admin/home' element={<AdminHome/>} />
           <Route path='/admin/profile' element={<AdminProfile/>} />
